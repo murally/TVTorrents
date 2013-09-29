@@ -1,0 +1,38 @@
+INTRODUCTION
+------------
+
+Hi there!
+
+You've landed on this page, and are reading this README cos you're interested probably in TV shows and torrents.
+I wanted to 
+	a. experiment with Python
+	b. Automate my TV series downloads
+
+and hence this small project.
+
+DEPENDENCIES
+------------
+
+I wanna list down all the dependencies here:
+
+	* BitTorrent with Web API enabled
+	* A calendar subscription with 'www.next-episode.net'
+	* Python 2.7
+
+HOW IT WORKS
+------------
+
+You run the script, it connects to the calendar, downloads a copy of it to your local computer, parses it, checks what TV shows are on today, and for each of those shows, adds a torrent into BitTorrent. A query is made to isohunt.com to get torrent listings in JSON, sorted on size, and only torrents between 100 and 400 MB are used. 
+
+TODO
+----
+
+Make sure that variables are separated out into a different module. Current variables/parameters include:
+	
+	Location of downloaded calendar .ics file
+	Torrent query URL
+	Download size limits, max and min
+	BitTorrent Web API URL
+	
+Make sure that erroneous torrents aren't downloaded. Right now there's no way to verify whether a torrent is legit or not, must try to do something about that.
+Currently filtering is only based on size.
