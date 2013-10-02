@@ -31,7 +31,10 @@ class GetTorrent(object):
 		self.today = datetime.today()
 		nofile = os.path.exists(filename)
 
-		if self.today.day == 1 or not nofile:
+		modtime = os.path.getmtime(filename)
+		formattedtime = datetime.fromtimestamp(modtime)
+
+		if self.today.month > formattedtime.month or not nofile:
 			urllib.urlretrieve(cal_url, filename)
 
 	def initLogFile(self):
